@@ -22,11 +22,17 @@ write_pot(0xC01)
 time.sleep(0.5)
 write_pot(0xF00)
 time.sleep(0.5)
+counter = 0
 while True:
-	#use a for loop to send the data defined in pattern1 one by one
-	for x in pattern1:
-		write_pot(x)
-		time.sleep(0.1)
+   if counter % 2 == 0:
+       for x in pattern1:
+           write_pot(x)
+           time.sleep(0.1)
+   else:
+       for x in pattern2:
+           write_pot(x)
+           time.sleep(0.1)
+   counter += 1
 #Program for SPI dot matrix display
 
 
